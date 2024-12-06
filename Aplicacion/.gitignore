@@ -11,4 +11,4 @@ __pycache__/
 *.pyc
 
 # Archivos específicos del proyecto
-conexion.py
+#conexion.py

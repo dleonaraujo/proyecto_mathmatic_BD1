@@ -23,27 +23,28 @@
     </style>
 </head>
 <body>
-    <h2 style="text-align: center;">Lista de Sectores</h2>
+    <h2 style="text-align: center;">Cursos por Estudiante</h2>
 
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Estado</th>
-
+                <th>Estudiante</th>
+                <th>Curso</th>
+                <th>Solicitudes</th>
+                <th>Profesor</th>
             </tr>
         </thead>
         <tbody>
-            {% for sector in sectores %}
+            {% for ce in cursos_estudiantes %}
             <tr>
-                <td>{{ sector.id }}</td>
-                <td>{{ sector.nombre }}</td>
-                <td>{{ sector.estado }}</td>
+                <td>{{ ce.estudiante }}</td>
+                <td>{{ ce.curso }}</td>
+                <td>{{ ce.solicitudes }}</td>
+                <td>{{ ce.profesor }}</td>
             </tr>
             {% else %}
             <tr>
-                <td colspan="3">No hay sectores disponibles.</td>
+                <td colspan="3">No hay registros disponibles.</td>
             </tr>
             {% endfor %}
         </tbody>
