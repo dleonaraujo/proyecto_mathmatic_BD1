@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formas de Pago</title>
+    <style>
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Lista de Aulas</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ID_Sector</th>
+                <th>Estado</th>
+                <th>Codigo</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for aula in aulas %}
+            <tr>
+                <td>{{ aula.id }}</td>
+                <td>{{ aula.id_sector }}</td>
+                <td>{{ aula.estado }}</td>
+                <td>{{ aula.codigo }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">No hay aulas disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
