@@ -1,0 +1,14 @@
+# Ignorar entornos virtuales
+venv/
+env/
+
+# Archivos de configuración
+*.env
+*.cfg
+
+# Archivos de caché
+__pycache__/
+*.pyc
+
+# Archivos específicos del proyecto
+conexion.py
