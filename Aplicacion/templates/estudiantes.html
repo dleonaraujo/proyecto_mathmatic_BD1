@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathMatic</title>
+    <style>
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .btn-agregar {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-agregar:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Lista de Aulas</h2>
+
+    <div class="btn-container">
+        <a href="/agregar" class="btn-agregar">Agregar</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Fecha</th>
+                <th>Email</th>
+                <th>Direccion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in estudiantes %}
+            <tr>
+                <td>{{ e.id }}</td>
+                <td>{{ e.nombre }}</td>
+                <td>{{ e.telefono }}</td>
+                <td>{{ e.fecha }}</td>
+                <td>{{ e.email }}</td>
+                <td>{{ e.direccion }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6">No hay registros disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
