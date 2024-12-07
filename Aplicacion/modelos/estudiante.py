@@ -6,20 +6,21 @@ estudiante_bp=Blueprint("estudiante", __name__, url_prefix="/estudiante")
 estudiante_bp.secret_key = '123456789'
 
 class Estudiante:
-    def __init__(self, id, nombre, telefono, fecha, email, direccion):
+    def __init__(self, id, nombre, telefono, fecha, email, direccion, edad):
         self.id = id
         self.nombre = nombre
         self.telefono = telefono
         self.fecha = fecha
         self.email = email
         self.direccion = direccion
+        self.edad = edad
 
 
 @estudiante_bp.route("/")
 def obtener_estudiantes():
     conexion = obtener_conexion()
     cursor=conexion.cursor()
-    cursor.execute("SELECT * FROM vw_estudiantes")
+    cursor.execute("SELECT id, nombre, telefono, fecha, email, direccion, dbo.ObtenerEdad(fecha) AS edad FROM vw_estudiantes")
     estudiantes = []
 
     for registro in cursor.fetchall():
@@ -29,7 +30,8 @@ def obtener_estudiantes():
             telefono=registro.telefono,
             fecha=registro.fecha,
             email=registro.email,
-            direccion=registro.direccion
+            direccion=registro.direccion,
+            edad=registro.edad
         )
         estudiantes.append(estudiante)
 

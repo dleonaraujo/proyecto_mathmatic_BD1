@@ -43,7 +43,7 @@
     <h2 style="text-align: center;">Lista de Aulas</h2>
 
     <div class="btn-container">
-        <a href="/agregar" class="btn-agregar">Agregar</a>
+        <a href="{{ url_for('estudiante.formulario_agregar_estudiante') }}" class="btn-agregar">Agregar</a>
     </div>
 
     <table>
@@ -55,6 +55,7 @@
                 <th>Fecha</th>
                 <th>Email</th>
                 <th>Direccion</th>
+                <th>Edad</th>
             </tr>
         </thead>
         <tbody>
@@ -66,6 +67,7 @@
                 <td>{{ e.fecha }}</td>
                 <td>{{ e.email }}</td>
                 <td>{{ e.direccion }}</td>
+                <td>{{ e.edad }}</td>
             </tr>
             {% else %}
             <tr>
